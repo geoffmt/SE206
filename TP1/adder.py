@@ -35,7 +35,7 @@ def NOT(x, out):
     return (~x|~out) & (x|out)
 
 def XOR(x,y,out):
-    return (~x|~y|~out) & (x|y|~out) & (x|~y|out) & (x|y|~out)
+    return (~x|~y|~out) & (x|y|~out) & (x|~y|out) & (~x|y|out)
 
 def mk_adder() -> Cnf:
     return AND(a, b, s1) & XOR(a, b, s0) & AND(s0, cin, s2) & XOR(s0, cin, s) & OR(s1, s2, cout)
