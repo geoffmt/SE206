@@ -21,11 +21,21 @@ s = SatVar('s')
 cout = SatVar('cout')
 
 # Internal variables (if needed)
+s0 = SatVar('s0')
+s1 = SatVar('s1')
+s2 = SatVar('s2')
 
+def OR(x, y, out):
+    return (x|y|~out) & (~x|out) & (~y|out)
+
+def AND(x, y, out):
+    return (~x|~y|out) & (x|~out) & (y|~out)
+
+def NOT(x, out):
+    return (~x|~out) & (x|out)
+
+def XOR(x,y,out):
+    return (~x|~y|~out) & (x|y|~out) & (x|~y|out) & (x|y|~out)
 
 def mk_adder() -> Cnf:
-
-    # TODO: Construct CNF for full adder
-    # (The CNF returned below is pure nonsense...)
-    return (a | ~a) & (b | ~s) & ~cout & (b | cin)
-
+    return AND(a, b, s1) & XOR(a, b, s0) & AND(s0, cin, s2) & XOR(s0, cin, s) & OR(s1, s2, cout)
