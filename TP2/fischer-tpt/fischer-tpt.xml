@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+typedef int[1,2] myID;
+
+int has_cs=0, cpt=0;
+const int c =4; 
+const int CS =30;
+const int delay = 3;
+</declaration><template><name x="5" y="5">Process</name><parameter>const myID ID</parameter><declaration>// Place local declarations here.
+clock sleeptime;// to model the sleep time
+clock exec;// to model constraints on execution times</declaration><location id="id0" x="104" y="-48"><name x="120" y="-48">waiting</name></location><location id="id1" x="-168" y="-112"><name x="-232" y="-136">L3goto</name></location><location id="id2" x="-40" y="96"></location><location id="id3" x="-40" y="32"><name x="-112" y="16">L4toLk</name></location><location id="id4" x="-40" y="-48"><name x="-24" y="-40">L3</name></location><location id="id5" x="104" y="-128"><name x="128" y="-160">L2</name></location><location id="id6" x="-32" y="-128"><name x="-72" y="-136">L1</name></location><location id="id7" x="64" y="-208"><name x="88" y="-232">L0goto</name></location><location id="id8" x="-32" y="-208"><name x="-42" y="-238">L0</name></location><init ref="id8"/><transition><source ref="id1"/><target ref="id8"/><nail x="-152" y="-216"/></transition><transition><source ref="id0"/><target ref="id0"/><label kind="guard" x="248" y="-48">cpt!=0</label><label kind="assignment" x="240" y="-24">cpt--</label><nail x="184" y="40"/><nail x="248" y="-96"/></transition><transition><source ref="id3"/><target ref="id2"/><label kind="assignment" x="-24" y="56">has_cs=0</label></transition><transition><source ref="id0"/><target ref="id4"/><label kind="assignment" x="8" y="-48">cpt=delay</label></transition><transition><source ref="id5"/><target ref="id0"/><label kind="assignment" x="112" y="-96">cpt=delay</label></transition><transition><source ref="id4"/><target ref="id3"/></transition><transition><source ref="id4"/><target ref="id1"/></transition><transition><source ref="id6"/><target ref="id5"/><label kind="assignment" x="-8" y="-120">has_cs=ID</label></transition><transition><source ref="id8"/><target ref="id6"/></transition><transition><source ref="id8"/><target ref="id7"/><label kind="guard" x="-16" y="-200">has_cs!=0</label></transition><transition><source ref="id7"/><target ref="id8"/><nail x="16" y="-272"/></transition></template><system>// This command is special it instanciate any 
+// possible instance of Process with distinct parameters.
+// As myID is in {1,2} there will be two instances. 
+system Process;</system></nta>
