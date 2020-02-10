@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+
+chan push,token;</declaration><template><name x="5" y="5">Tourniquet</name><declaration>// Place local declarations here.
+
+clock H;
+int tokens;
+
+void reinit_tokens()
+{
+   tokens=0;
+  
+}</declaration><location id="id0" x="40" y="-112"><name x="-40" y="-120">unlocked</name><label kind="invariant" x="-32" y="-104">H&lt;30</label></location><location id="id1" x="-192" y="-112"><name x="-176" y="-120">locked</name></location><init ref="id1"/><transition><source ref="id0"/><target ref="id1"/><label kind="guard" x="-120" y="-40">H&lt;=30</label><label kind="synchronisation" x="-120" y="-24">push?</label><label kind="assignment" x="-120" y="-8">reinit_tokens()</label><nail x="0" y="-40"/><nail x="-152" y="-40"/></transition><transition><source ref="id1"/><target ref="id0"/><label kind="synchronisation" x="-128" y="-208">token?</label><label kind="assignment" x="-128" y="-192">H=0,tokens++</label><nail x="-144" y="-176"/><nail x="-8" y="-176"/></transition><transition><source ref="id0"/><target ref="id0"/><label kind="guard" x="104" y="-160">(H&lt;30)</label><label kind="synchronisation" x="104" y="-144">token?</label><nail x="96" y="-176"/><nail x="96" y="-112"/></transition><transition><source ref="id1"/><target ref="id1"/><label kind="synchronisation" x="-288" y="-152">push?</label><nail x="-240" y="-112"/><nail x="-240" y="-184"/></transition></template><template><name>User</name><location id="id2" x="0" y="0"></location><init ref="id2"/><transition><source ref="id2"/><target ref="id2"/><label kind="synchronisation" x="-48" y="80">push!</label><nail x="0" y="72"/><nail x="-56" y="72"/><nail x="-56" y="24"/></transition><transition><source ref="id2"/><target ref="id2"/><label kind="synchronisation" x="12" y="-108">token!</label><nail x="4" y="-84"/><nail x="68" y="-84"/><nail x="68" y="-28"/></transition></template><template><name>BoundedUser</name><declaration>int budget = 10;</declaration><location id="id3" x="56" y="0"><name x="56" y="-56">Entering</name></location><location id="id4" x="56" y="0"></location><location id="id5" x="-136" y="8"><name x="-146" y="-22">ReadyToEnter</name></location><init ref="id5"/><transition><source ref="id4"/><target ref="id3"/><label kind="synchronisation" x="136" y="-8">token!</label><nail x="112" y="64"/><nail x="136" y="-32"/></transition><transition><source ref="id4"/><target ref="id5"/><label kind="synchronisation" x="-56" y="104">push!</label><nail x="32" y="64"/><nail x="24" y="72"/><nail x="-112" y="80"/></transition><transition><source ref="id3"/><target ref="id4"/></transition><transition><source ref="id5"/><target ref="id4"/><label kind="synchronisation" x="-64" y="-96">token!</label><nail x="-104" y="-72"/><nail x="24" y="-80"/></transition></template><system>// Place template instantiations here.
+T = Tourniquet();
+U = BoundedUser();
+Process2 = User();
+
+// List one or more processes to be composed into a system.
+system T,Process2,U;</system></nta>
