@@ -5,6 +5,7 @@ import sys
 import circuit.circuit as circ
 from circuit.cnf import SatVar, Solver, Cnf
 from circuit.circuit import Circuit
+from circuit.circuit import Node
 from adder import *
 
 # Implementation hints:
@@ -30,46 +31,51 @@ from adder import *
 #    correct.
 
 
-def LiteralNode(nd, s, myCnf):
+def LiteralNode(nd, s, cnf):
     if (nd.getValue()):
-        myCnf = myCnf & s
+        cnf = cnf & s
     else:
-        myCnf = myCnf & ~s
+        cnf = cnf & ~s
+    return cnf
 
-def BinOpNode(nd, s, myCnf, prefix):
-    x, myCnf1 = transform_recursive(nd.getChild(0), prefix)
-    y, myCnf2 = transform_recursive(nd.getChild(1), prefix)
-    myCnf = myCnf & myCnf1 & myCnf2
+def BinOpNode(nd, s, cnf, pf: str=''):
+    x, myCnf1 = transform_recursive(nd.getChild(0), pf)
+    y, myCnf2 = transform_recursive(nd.getChild(1), pf)
+    cnf = cnf & myCnf1 & myCnf2
     if (nd.getOp() == "&"):
-        myCnf = myCnf & AND(s, x, y)
+        cnf = cnf & AND(x, y, s)
     elif (nd.getOp() == "^"):
-        myCnf = myCnf & XOR(s, x, y)
+        cnf = cnf & XOR(x, y, s)
     elif (nd.getOp() == "|"):
-        myCnf = myCnf & OR(s, x, y)
+        cnf = cnf & OR(x, y, s)
+    return cnf
 
-def UnOpNode(nd, s, myCnf):
-    x, myCnf1 = transform_recursive(nd.getChild(0), prefix)
-    myCnf = myCnf & myCnf1
+def UnOpNode(nd, s, cnf, pf: str=''):
+    x, myCnf1 = transform_recursive(nd.getChild(0), pf)
+    cnf = cnf & myCnf1
     if (nd.getOp() == "~"):
-        myCnf = myCnf & NOT(s, x)
+        cnf = cnf & NOT(x, s)
+    return cnf
 
-def transform_recursive(nd, prefix: str=''):
+def transform_recursive(nd: Node, prefix: str=''):
 
-    myCnf = Cnf()
+    newCnf = Cnf()
 
-    s = SatVar(prefix+nd.getID())
+    if type(nd).__name__ == "Variable":
+        newSatVarName = SatVar(prefix+nd.getName())
+        return newSatVarName, newCnf
 
+    newSatVar = SatVar(prefix+str(nd.getID()))
     if type(nd).__name__ == "Literal":
-        LiteralNode(nd, s, myCnf)
-        return s, myCnf
+        newCnf = LiteralNode(nd, newSatVar, newCnf)
 
     if type(nd).__name__ == "BinOp":
-        BinOpNode(nd, s, myCnf)
-        return s, myCnf
+        newCnf = BinOpNode(nd, newSatVar, newCnf)
 
     if type(nd).__name__ == "UnOp":
-        UnOpNode(nd, s, myCnf)
-        return s, myCnf
+        newCnf = UnOpNode(nd, newSatVar, newCnf)
+
+    return newSatVar, newCnf
 
 
 def transform(c: Circuit, prefix: str='') -> Cnf:
@@ -83,18 +89,28 @@ def transform(c: Circuit, prefix: str='') -> Cnf:
 
     inputs = c.getSignals()
     for signal in inputs:
-        s = SatVar(prefix+signal)
-        nd = c.getEquation(signal)
-        child = nd.getChildren()
+        mySatVar = SatVar(prefix+signal)
+        node = c.getEquation(signal)
+        child = node.getChildren()
 
-        if type(nd).__name__ == "Literal":
-            LiteralNode(nd, s, myCnf)
+        # Il y a une erreur dans test.py : Did not find value for output signal 's_8' in solution
+        # En se rendant dans cra8.crc, on se rend compte qu'il y a une opération d'affection :
+        # 	s_8 = x19
+        # On crée donc la fonction EQ dans le fichier adder.py qui est simplement
+        # une opération d'égalité nécessaire pour passer le test de cra8.crc
 
-        if type(nd).__name__ == "BinOp":
-            BinOpNode(nd, s, myCnf)
+        if type(node).__name__ == "Variable":
+            SatVarName = SatVar(prefix+node.getName())
+            myCnf = myCnf & EQ(SatVarName, mySatVar)
 
-        if type(nd).__name__ == "UnOp":
-            UnOpNode(nd, s, myCnf)
+        if type(node).__name__ == "Literal":
+            myCnf = LiteralNode(node, mySatVar, myCnf)
+
+        if type(node).__name__ == "BinOp":
+            myCnf = BinOpNode(node, mySatVar, myCnf, prefix)
+
+        if type(node).__name__ == "UnOp":
+            myCnf = UnOpNode(node, mySatVar, myCnf, prefix)
 
     return myCnf
 
