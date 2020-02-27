@@ -1,8 +1,8 @@
 digraph full_adder {
   rankdir="LR";
   cin [label="cin", shape=circle];
-  b [label="b", shape=circle];
   a [label="a", shape=circle];
+  b [label="b", shape=circle];
   cout [label="cout", shape=diamond];
   s [label="s", shape=diamond];
   s0 [label="s0", shape=hexagon];

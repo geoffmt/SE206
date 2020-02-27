@@ -113,7 +113,3 @@ def transform(c: Circuit, prefix: str='') -> Cnf:
             myCnf = UnOpNode(node, mySatVar, myCnf, prefix)
 
     return myCnf
-
-
-    # TODO: implement me
-    pass

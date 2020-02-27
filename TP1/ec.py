@@ -5,6 +5,7 @@ import sys
 import circuit.circuit as circ
 from circuit.cnf import SatVar, Solver, Solution, Cnf
 from circuit.circuit import Circuit
+from adder import *
 from transform import transform
 
 # Implementation hints:
@@ -32,6 +33,54 @@ def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
 
     '''
 
-    # TODO: implement me
-    pass
+    numberInputs_1 = len(c1.getInputs())
+    numberInputs_2 = len(c2.getInputs())
+    numberOutputs_1 = len(c1.getOutputs())
+    numberOutputs_2 = len(c2.getOutputs())
 
+    # Les deux circuits sont incompatibles
+    if (numberInputs_1 != numberInputs_2) | (numberOutputs_1 != numberOutputs_2):
+        return (False, None)
+
+    cnf1 = transform(c1, 'c1_')
+    cnf2 = transform(c2, 'c2_')
+
+    cnf = cnf1 & cnf2
+
+    output_mitter = SatVar('output_mitter')
+
+    for inputs_1 in c1.getInputs():
+        connector_in = SatVar(inputs_1) #links c2 and c1
+        c1_in = SatVar('c1_'+str(inputs_1))
+        c2_in = SatVar('c2_'+str(inputs_1))
+        cnf = cnf & EQ(c1_in, connector_in) & EQ(c2_in, connector_in)
+
+    connector_out_XOR_TAB = []
+    for outputs_1 in c1.getOutputs():
+        connector_out = SatVar(outputs_1)
+        connector_out_XOR_TAB.append(connector_out)
+        c1_out = SatVar('c1_'+str(outputs_1))
+        c2_out = SatVar('c2_'+str(outputs_1))
+        cnf = cnf & XOR(c1_out, c2_out, connector_out)
+
+    if (numberOutputs_1 == 1):
+        cnf = cnf & EQ(output_mitter, connector_out_XOR_TAB[0])
+    else:
+        connector_out_OR_TAB = [SatVar('connector_or'+str(0))]
+        cnf = cnf & OR(connector_out_XOR_TAB[0],connector_out_XOR_TAB[1],connector_out_OR_TAB[0])
+
+        for i in range(1,len(connector_out_XOR_TAB)-2):
+            connector_out_OR_TAB.append(SatVar('connector_or'+str(i)))
+            cnf = cnf & OR(connector_out_XOR_TAB[i+1],connector_out_OR_TAB[i-1],connector_out_OR_TAB[i])
+
+        cnf = cnf & EQ(output_mitter, connector_out_OR_TAB[len(connector_out_XOR_TAB)-3])
+
+    cnf = cnf & output_mitter
+
+    solver = Solver()
+    solution = solver.solve(cnf)
+
+    if (solution):
+        return (False, solution)
+    else:
+        return (True, None)
