@@ -70,10 +70,10 @@ def transform_recursive(nd: Node, prefix: str=''):
         newCnf = LiteralNode(nd, newSatVar, newCnf)
 
     if type(nd).__name__ == "BinOp":
-        newCnf = BinOpNode(nd, newSatVar, newCnf)
+        newCnf = BinOpNode(nd, newSatVar, newCnf, prefix)
 
     if type(nd).__name__ == "UnOp":
-        newCnf = UnOpNode(nd, newSatVar, newCnf)
+        newCnf = UnOpNode(nd, newSatVar, newCnf, prefix)
 
     return newSatVar, newCnf
 
