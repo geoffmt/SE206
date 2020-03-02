@@ -38,6 +38,7 @@ def LiteralNode(nd, s, cnf):
         cnf = cnf & ~s
     return cnf
 
+# Transformation d'une opération binaire
 def BinOpNode(nd, s, cnf, pf: str=''):
     x, myCnf1 = transform_recursive(nd.getChild(0), pf)
     y, myCnf2 = transform_recursive(nd.getChild(1), pf)
@@ -50,6 +51,7 @@ def BinOpNode(nd, s, cnf, pf: str=''):
         cnf = cnf & OR(x, y, s)
     return cnf
 
+# Transformation d'une opération unaire
 def UnOpNode(nd, s, cnf, pf: str=''):
     x, myCnf1 = transform_recursive(nd.getChild(0), pf)
     cnf = cnf & myCnf1
@@ -57,6 +59,9 @@ def UnOpNode(nd, s, cnf, pf: str=''):
         cnf = cnf & NOT(x, s)
     return cnf
 
+
+# Implémente la transformation récursive en appliquant l'algorithme aux children
+# On utilise getID() pour identifier de manière unique chaque node pour en oublier aucun
 def transform_recursive(nd: Node, prefix: str=''):
 
     newCnf = Cnf()
@@ -78,16 +83,16 @@ def transform_recursive(nd: Node, prefix: str=''):
     return newSatVar, newCnf
 
 
+'''The function transform takes a Circuit c and returns a myCnf obtained by the
+Tseitin transformation of c. The optional prefix string will be used for
+all variable names in the myCnf.
+'''
 def transform(c: Circuit, prefix: str='') -> Cnf:
 
-    '''The function transform takes a Circuit c and returns a myCnf obtained by the
-    Tseitin transformation of c. The optional prefix string will be used for
-    all variable names in the myCnf.
-    '''
-
     myCnf = Cnf()
-
     inputs = c.getSignals()
+
+    #On parcourt l'ensemble des inputs pour trouver la transformation Tseitin 
     for signal in inputs:
         mySatVar = SatVar(prefix+signal)
         node = c.getEquation(signal)
@@ -98,7 +103,6 @@ def transform(c: Circuit, prefix: str='') -> Cnf:
         # 	s_8 = x19
         # On crée donc la fonction EQ dans le fichier adder.py qui est simplement
         # une opération d'égalité nécessaire pour passer le test de cra8.crc
-
         if type(node).__name__ == "Variable":
             SatVarName = SatVar(prefix+node.getName())
             myCnf = myCnf & EQ(SatVarName, mySatVar)
