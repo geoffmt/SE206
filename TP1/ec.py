@@ -23,15 +23,14 @@ from transform import transform
 #
 # 3) Run the test script to see if your code works!
 
+'''The function check() takes two Circuits as input and performs an equivalence
+check using a SAT solver. it returns a tuple, where the first entry is a
+Boolean value (True for equivalent, False for different) and the second
+value is -- in case of a difference found -- a Solution to the underlying
+SAT problem, representing a counterexample. If the circuits are indeed
+equivalent, the second entry will be None.
 
-    '''The function check() takes two Circuits as input and performs an equivalence
-    check using a SAT solver. it returns a tuple, where the first entry is a
-    Boolean value (True for equivalent, False for different) and the second
-    value is -- in case of a difference found -- a Solution to the underlying
-    SAT problem, representing a counterexample. If the circuits are indeed
-    equivalent, the second entry will be None.
-
-    '''
+'''
 
 def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
  
@@ -83,9 +82,8 @@ def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
 
         cnf = cnf & EQ(output_mitter, connector_out_OR_TAB[len(connector_out_XOR_TAB)-3]) # On connecte à la sortie finale
 
-
-
     cnf = cnf & output_mitter
+
 
     solution = Solver().solve(cnf)
 
