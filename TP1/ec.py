@@ -23,7 +23,7 @@ from transform import transform
 #
 # 3) Run the test script to see if your code works!
 
-def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
+
     '''The function check() takes two Circuits as input and performs an equivalence
     check using a SAT solver. it returns a tuple, where the first entry is a
     Boolean value (True for equivalent, False for different) and the second
@@ -33,28 +33,34 @@ def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
 
     '''
 
-    numberInputs_1 = len(c1.getInputs())
-    numberInputs_2 = len(c2.getInputs())
+def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
+ 
+
     numberOutputs_1 = len(c1.getOutputs())
-    numberOutputs_2 = len(c2.getOutputs())
 
     # Les deux circuits sont incompatibles
-    if (numberInputs_1 != numberInputs_2) | (numberOutputs_1 != numberOutputs_2):
+    if (c1.getInputs() == c2.getInputs() and c1.getOutputs() == c2.getOutputs()) == 0:
         return (False, None)
 
+
+    # Etape 1 : transformation Tseitin des circuits c1 et c2
     cnf1 = transform(c1, 'c1_')
     cnf2 = transform(c2, 'c2_')
 
     cnf = cnf1 & cnf2
 
+
     output_mitter = SatVar('output_mitter')
 
+    # Etape 2 : On connecte les entrées c1 et c2 grâce à connector_in
     for inputs_1 in c1.getInputs():
-        connector_in = SatVar(inputs_1) #links c2 and c1
+        connector_in = SatVar(inputs_1) #futur lien entre c2 et c1
         c1_in = SatVar('c1_'+str(inputs_1))
         c2_in = SatVar('c2_'+str(inputs_1))
         cnf = cnf & EQ(c1_in, connector_in) & EQ(c2_in, connector_in)
 
+
+    # Etape 3 : On connecte les sorties aux différents XOR 
     connector_out_XOR_TAB = []
     for outputs_1 in c1.getOutputs():
         connector_out = SatVar(outputs_1)
@@ -63,6 +69,8 @@ def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
         c2_out = SatVar('c2_'+str(outputs_1))
         cnf = cnf & XOR(c1_out, c2_out, connector_out)
 
+
+    # Etape 4 : On connecte les sorties des XOR à la porte logique OR finale 
     if (numberOutputs_1 == 1):
         cnf = cnf & EQ(output_mitter, connector_out_XOR_TAB[0])
     else:
@@ -73,12 +81,13 @@ def check(c1: Circuit, c2: Circuit) -> (bool, Solution):
             connector_out_OR_TAB.append(SatVar('connector_or'+str(i)))
             cnf = cnf & OR(connector_out_XOR_TAB[i+1],connector_out_OR_TAB[i-1],connector_out_OR_TAB[i])
 
-        cnf = cnf & EQ(output_mitter, connector_out_OR_TAB[len(connector_out_XOR_TAB)-3])
+        cnf = cnf & EQ(output_mitter, connector_out_OR_TAB[len(connector_out_XOR_TAB)-3]) # On connecte à la sortie finale
+
+
 
     cnf = cnf & output_mitter
 
-    solver = Solver()
-    solution = solver.solve(cnf)
+    solution = Solver().solve(cnf)
 
     if (solution):
         return (False, solution)
