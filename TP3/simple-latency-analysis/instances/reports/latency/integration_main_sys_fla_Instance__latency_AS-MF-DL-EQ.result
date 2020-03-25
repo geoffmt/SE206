@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="ASCII"?>
+<result:AnalysisResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:result="http://www.osate.org/result/Result" analysis="latency" message="AS-MF-DL-EQ">
+  <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#/"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <results message="Latency results for e2e_f_cmd" resultType="FAILURE">
+    <values xsi:type="result:StringValue" value=""/>
+    <values xsi:type="result:RealValue" value="34.0"/>
+    <values xsi:type="result:RealValue" value="936.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue" value="120.0"/>
+    <values xsi:type="result:RealValue" value="450.0"/>
+    <diagnostics diagnosticType="WARNING" message="Minimum specified flow latency total 0.000ms less than expected minimum end to end latency 120.0ms (better response time)">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.0"/>
+    </diagnostics>
+    <diagnostics diagnosticType="WARNING" message="Minimum actual latency total 34.0ms less than expected minimum end to end latency 120.0ms (faster actual minimum response time)">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.0"/>
+    </diagnostics>
+    <diagnostics diagnosticType="ERROR" message="Maximum actual latency total 936.0ms exceeds expected maximum end to end latency 450.0ms">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.0"/>
+    </diagnostics>
+    <diagnostics diagnosticType="WARNING" message="Jitter of actual latency total 34.0..936.0ms exceeds expected end to end latency jitter 120.0..450.0ms">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.0"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <diagnostics diagnosticType="INFO" message="Using deadline as execution time was not set">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.2"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <diagnostics diagnosticType="INFO" message="Adding latency subtotal from protocols and hardware - shown with ()">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.1"/>
+      </diagnostics>
+      <subResults>
+        <values xsi:type="result:RealValue" value="17.0"/>
+        <values xsi:type="result:RealValue" value="18.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <diagnostics diagnosticType="INFO" message="Using data transfer time">
+          <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+        </diagnostics>
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+      </subResults>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <diagnostics diagnosticType="INFO" message="Best case 0 ms worst case 50.0ms (period) sampling delay">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.1"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@connectionInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="150.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <diagnostics diagnosticType="INFO" message="Min: Best case: 0 ms sampling delay">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.2"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Synchronous communication on same platform">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.2"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Max: Worst case: Round up sampling delay to period 200.0ms">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.2"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <diagnostics diagnosticType="INFO" message="Adding latency subtotal from protocols and hardware - shown with ()">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.3"/>
+      </diagnostics>
+      <subResults>
+        <values xsi:type="result:RealValue" value="17.0"/>
+        <values xsi:type="result:RealValue" value="18.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <diagnostics diagnosticType="INFO" message="Using data transfer time">
+          <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+        </diagnostics>
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+      </subResults>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.3"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <diagnostics diagnosticType="INFO" message="Best case 0 ms worst case 200.0ms (period) sampling delay">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <diagnostics diagnosticType="INFO" message="Using deadline as execution time was not set">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+    </subResults>
+    <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.0"/>
+  </results>
+  <results message="Latency results for e2e_f_obst" resultType="FAILURE">
+    <values xsi:type="result:StringValue" value=""/>
+    <values xsi:type="result:RealValue" value="8.0"/>
+    <values xsi:type="result:RealValue" value="710.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue" value="20.0"/>
+    <values xsi:type="result:RealValue" value="350.0"/>
+    <diagnostics diagnosticType="WARNING" message="Minimum specified flow latency total 0.000ms less than expected minimum end to end latency 20.0ms (better response time)">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.1"/>
+    </diagnostics>
+    <diagnostics diagnosticType="WARNING" message="Minimum actual latency total 8.00ms less than expected minimum end to end latency 20.0ms (faster actual minimum response time)">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.1"/>
+    </diagnostics>
+    <diagnostics diagnosticType="ERROR" message="Maximum actual latency total 710.0ms exceeds expected maximum end to end latency 350.0ms">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.1"/>
+    </diagnostics>
+    <diagnostics diagnosticType="WARNING" message="Jitter of actual latency total 8.00..710.0ms exceeds expected end to end latency jitter 20.0..350.0ms">
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.1"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="100.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <diagnostics diagnosticType="INFO" message="Using deadline as execution time was not set">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.1"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <diagnostics diagnosticType="INFO" message="Adding latency subtotal from protocols and hardware - shown with ()">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.0"/>
+      </diagnostics>
+      <subResults>
+        <values xsi:type="result:RealValue" value="5.0"/>
+        <values xsi:type="result:RealValue" value="6.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <diagnostics diagnosticType="INFO" message="Using data transfer time">
+          <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+        </diagnostics>
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+      </subResults>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="100.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <diagnostics diagnosticType="INFO" message="Best case 0 ms worst case 100.0ms (period) sampling delay">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.0"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="100.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.4/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <diagnostics diagnosticType="INFO" message="Adding latency subtotal from protocols and hardware - shown with ()">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.2"/>
+      </diagnostics>
+      <subResults>
+        <values xsi:type="result:RealValue" value="3.0"/>
+        <values xsi:type="result:RealValue" value="4.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <values xsi:type="result:StringValue" value="transmission time"/>
+        <diagnostics diagnosticType="INFO" message="Using data transfer time">
+          <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+        </diagnostics>
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.0"/>
+      </subResults>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@connectionInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <values xsi:type="result:StringValue" value="sampling"/>
+      <diagnostics diagnosticType="INFO" message="Best case 0 ms worst case 200.0ms (period) sampling delay">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <diagnostics diagnosticType="INFO" message="Using deadline as execution time was not set">
+        <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+      </diagnostics>
+      <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@componentInstance.3"/>
+    </subResults>
+    <modelElement href="../../integration_main_sys_fla_Instance.aaxl2#//@endToEndFlow.1"/>
+  </results>
+</result:AnalysisResult>

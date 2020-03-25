@@ -1,0 +1,74 @@
+package software_pkg
+public
+	
+	with data_pkg;
+	
+	thread periodic_thread
+		properties			
+			Dispatch_Protocol => Periodic;	
+	end periodic_thread;
+	
+	thread obstacle_detection extends periodic_thread
+		features
+			dist: in data port data_pkg::distance;
+			obst: out data port data_pkg::obstacle_detected;
+		-- flows (before properties)
+		flows
+			fl_obst: flow path dist -> obst;
+		-- properties
+		properties
+			Period => 100 ms;
+			Deadline => 100 ms;
+	end obstacle_detection;
+	
+	thread speed_computation extends periodic_thread
+		features
+			pos: in data port data_pkg::position;
+			spd: out data port data_pkg::speed;
+		flows 
+			fl_spd: flow path pos -> spd;
+		properties
+			Period => 50 ms;
+			Deadline => 50 ms;
+	end speed_computation;
+	
+	thread command_computation extends periodic_thread
+		features
+			spd: in data port data_pkg::speed;
+			cmd: out data port data_pkg::acceleration;
+		flows
+			fl_cmd: flow path spd -> cmd;
+		properties
+			Period => 200 ms;
+			Deadline => 200 ms;
+	end command_computation;
+	
+	process control_application
+		features
+			dist: in data port data_pkg::distance;
+			pos: in data port data_pkg::position;
+			obst: out data port data_pkg::obstacle_detected;
+			cmd: out data port data_pkg::acceleration;
+		flows
+			fl_cmd: flow path pos -> cmd;
+			fl_obst: flow path dist -> obst;
+	end control_application;
+	
+	process implementation control_application.impl
+		subcomponents
+			obst_detection: thread obstacle_detection;
+			spd_computation: thread speed_computation;
+			cmd_computation: thread command_computation;
+		connections
+			cnx1: port dist -> obst_detection.dist;
+			cnx2: port pos  -> spd_computation.pos;
+			cnx3: port spd_computation.spd -> cmd_computation.spd;
+			cnx4: port obst_detection.obst -> obst;
+			cnx5: port cmd_computation.cmd -> cmd;
+		flows
+			fl_cmd: flow path pos -> cnx2 -> spd_computation.fl_spd -> cnx3 -> cmd_computation.fl_cmd -> cnx5 -> cmd;
+			fl_obst: flow path dist -> cnx1 -> obst_detection.fl_obst -> cnx4 -> obst;
+		-- TO BE COMPLETED ??? (properties)
+	end control_application.impl;
+	
+end software_pkg;

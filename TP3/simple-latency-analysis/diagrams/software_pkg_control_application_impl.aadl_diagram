@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="8e588261-8abb-4bef-93e2-8b1aa7c9a5d9" manual="true">
+    <element uuid="4825b39f-664b-4738-8e62-411bf2d275d7">
+      <element uuid="5a9e1166-1eaa-4a11-a98b-29fc3f2d5b4b">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>cnx1</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="950287d2-4afe-4db7-9156-46145319b742">
+      <element uuid="471d92cc-552f-4ced-b9b1-0c593ec918f4">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>cnx2</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="416cb5a6-bf9a-41b7-97d8-d1296283ca66">
+      <element uuid="ec625164-b8ad-47bd-b9ff-c948ec85c44e">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>cnx3</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="969b7a83-9140-4477-8687-3116e17ef39f">
+      <element uuid="8eb3d3e3-d48a-4441-ab0d-4e7f78596a1b">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>cnx4</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="adb41c3e-526c-4500-a355-e2dd976f2a7b">
+      <element uuid="fbd7a84d-9585-451c-ae18-db1eb8eb8300">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>cnx5</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="20fe08e1-4c59-46ba-9c25-aa692d8b05e9" dockArea="right">
+      <bo>
+        <seg>feature</seg>
+        <seg>cmd</seg>
+      </bo>
+      <position x="706.0" y="166.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="e9eeb9d1-cbf7-4087-ad0c-557b1733bcf4" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>dist</seg>
+      </bo>
+      <position y="76.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="31826da2-b11b-4b8d-976d-84d188016b96" dockArea="right">
+      <bo>
+        <seg>feature</seg>
+        <seg>obst</seg>
+      </bo>
+      <position x="706.0" y="106.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="900b61b0-32c8-4990-885d-484ef2642b2c" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>pos</seg>
+      </bo>
+      <position y="166.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="fde4026b-cb5f-44e4-b050-881937233f04">
+      <bo>
+        <seg>flow_specification</seg>
+        <seg>fl_cmd</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="c2a5cdff-2e32-4a5c-8157-fadaaccd142a">
+      <bo>
+        <seg>flow_specification</seg>
+        <seg>fl_obst</seg>
+      </bo>
+      <bendpoints>
+        <point x="163.0" y="218.0"/>
+        <point x="163.0" y="248.0"/>
+      </bendpoints>
+      <contentFilters/>
+    </element>
+    <element uuid="f60c7e6f-92a1-42de-99c0-ffb1dc0fb48b">
+      <element uuid="e0aa4b3a-cfb9-41d5-9c48-9cf7f6013465" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>cmd</seg>
+        </bo>
+        <position x="218.0" y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="cdb9d2df-5ecb-4f7d-8ef9-8097b9a8c037" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>spd</seg>
+        </bo>
+        <position y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="c18e0a8c-6f65-4240-b6cb-0343aca9b30c">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>fl_cmd</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>cmd_computation</seg>
+      </bo>
+      <position x="360.0" y="370.0"/>
+      <size width="263.0" height="90.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <element uuid="e3ad5c90-c9e5-4758-9c45-69216cb73ef5">
+      <element uuid="c51095b2-b64f-4905-857c-45708cbba1a7" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>dist</seg>
+        </bo>
+        <position y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="edb3d2a2-abf2-408c-bcc1-929f10d51340" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>obst</seg>
+        </bo>
+        <position x="196.0" y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="37ada23e-f088-4126-b63f-5a39108bdc51">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>fl_obst</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>obst_detection</seg>
+      </bo>
+      <position x="230.0" y="51.0"/>
+      <size width="241.0" height="90.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <element uuid="4161a910-6cb9-4833-9b9d-33d597041102">
+      <element uuid="f2d0045f-b82c-4ece-bffd-25ee734e2474" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>pos</seg>
+        </bo>
+        <position y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="67e1eec4-11bb-4c84-a9e1-97754b5d1ab0" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>spd</seg>
+        </bo>
+        <position x="210.0" y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="59d2b1a6-5c31-4d51-aa79-6e3fdeadac29">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>fl_spd</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>spd_computation</seg>
+      </bo>
+      <position x="60.0" y="350.0"/>
+      <size width="251.0" height="90.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>control_application.impl</seg>
+    </bo>
+    <position x="100.0" y="110.0"/>
+    <size width="751.0" height="591.0"/>
+    <contentFilters>
+      <filter>features</filter>
+      <filter>internalFeatures</filter>
+      <filter>processorFeatures</filter>
+      <filter>connections</filter>
+      <filter>flowSpecifications</filter>
+      <filter>subcomponents</filter>
+    </contentFilters>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>software_pkg::control_application.impl</seg>
+    </context>
+  </config>
+</diagram:Diagram>
