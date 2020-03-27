@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
-  <element uuid="8e588261-8abb-4bef-93e2-8b1aa7c9a5d9" manual="true">
+  <element uuid="8e588261-8abb-4bef-93e2-8b1aa7c9a5d9" manual="true" primaryLabelVisible="true">
     <element uuid="4825b39f-664b-4738-8e62-411bf2d275d7">
-      <element uuid="5a9e1166-1eaa-4a11-a98b-29fc3f2d5b4b">
+      <element uuid="d4505112-2a2e-4cba-bc0d-277f13b28903">
         <bo>
-          <seg>tag</seg>
-          <seg>unidirectional</seg>
+          <seg>pvg</seg>
+          <seg>communication_properties::timing</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -16,10 +16,10 @@
       <contentFilters/>
     </element>
     <element uuid="950287d2-4afe-4db7-9156-46145319b742">
-      <element uuid="471d92cc-552f-4ced-b9b1-0c593ec918f4">
+      <element uuid="721a3998-6312-4aca-8bf1-aa1cc39d5250">
         <bo>
-          <seg>tag</seg>
-          <seg>unidirectional</seg>
+          <seg>pvg</seg>
+          <seg>communication_properties::timing</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -30,10 +30,10 @@
       <contentFilters/>
     </element>
     <element uuid="416cb5a6-bf9a-41b7-97d8-d1296283ca66">
-      <element uuid="ec625164-b8ad-47bd-b9ff-c948ec85c44e">
+      <element uuid="0a41ce67-0829-4735-b906-fcd7bd55c8fb">
         <bo>
-          <seg>tag</seg>
-          <seg>unidirectional</seg>
+          <seg>pvg</seg>
+          <seg>communication_properties::timing</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -44,10 +44,10 @@
       <contentFilters/>
     </element>
     <element uuid="969b7a83-9140-4477-8687-3116e17ef39f">
-      <element uuid="8eb3d3e3-d48a-4441-ab0d-4e7f78596a1b">
+      <element uuid="a023fb74-2941-47ac-a4d3-f00f15c10c96">
         <bo>
-          <seg>tag</seg>
-          <seg>unidirectional</seg>
+          <seg>pvg</seg>
+          <seg>communication_properties::timing</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -58,10 +58,10 @@
       <contentFilters/>
     </element>
     <element uuid="adb41c3e-526c-4500-a355-e2dd976f2a7b">
-      <element uuid="fbd7a84d-9585-451c-ae18-db1eb8eb8300">
+      <element uuid="6de9d5d1-2eba-4287-8de0-e7eddfb9fbfb">
         <bo>
-          <seg>tag</seg>
-          <seg>unidirectional</seg>
+          <seg>pvg</seg>
+          <seg>communication_properties::timing</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -76,7 +76,7 @@
         <seg>feature</seg>
         <seg>cmd</seg>
       </bo>
-      <position x="706.0" y="166.0"/>
+      <position x="686.0" y="250.0"/>
       <contentFilters/>
     </element>
     <element uuid="e9eeb9d1-cbf7-4087-ad0c-557b1733bcf4" dockArea="left">
@@ -84,7 +84,7 @@
         <seg>feature</seg>
         <seg>dist</seg>
       </bo>
-      <position y="76.0"/>
+      <position y="84.0"/>
       <contentFilters/>
     </element>
     <element uuid="31826da2-b11b-4b8d-976d-84d188016b96" dockArea="right">
@@ -92,7 +92,7 @@
         <seg>feature</seg>
         <seg>obst</seg>
       </bo>
-      <position x="706.0" y="106.0"/>
+      <position x="686.0" y="84.0"/>
       <contentFilters/>
     </element>
     <element uuid="900b61b0-32c8-4990-885d-484ef2642b2c" dockArea="left">
@@ -100,25 +100,36 @@
         <seg>feature</seg>
         <seg>pos</seg>
       </bo>
-      <position y="166.0"/>
+      <position y="250.0"/>
       <contentFilters/>
     </element>
-    <element uuid="fde4026b-cb5f-44e4-b050-881937233f04">
+    <element uuid="fde4026b-cb5f-44e4-b050-881937233f04" primaryLabelVisible="true">
       <bo>
         <seg>flow_specification</seg>
         <seg>fl_cmd</seg>
       </bo>
+      <bendpoints>
+        <point x="152.0" y="412.0"/>
+        <point x="225.0" y="444.0"/>
+        <point x="448.0" y="444.0"/>
+        <point x="695.0" y="444.0"/>
+        <point x="764.0" y="409.0"/>
+      </bendpoints>
+      <primaryLabelPosition x="-24.0" y="-24.0"/>
       <contentFilters/>
     </element>
-    <element uuid="c2a5cdff-2e32-4a5c-8157-fadaaccd142a">
+    <element uuid="c2a5cdff-2e32-4a5c-8157-fadaaccd142a" primaryLabelVisible="true">
       <bo>
         <seg>flow_specification</seg>
         <seg>fl_obst</seg>
       </bo>
       <bendpoints>
-        <point x="163.0" y="218.0"/>
-        <point x="163.0" y="248.0"/>
+        <point x="202.0" y="217.0"/>
+        <point x="457.0" y="217.0"/>
+        <point x="650.0" y="217.0"/>
+        <point x="742.0" y="196.0"/>
       </bendpoints>
+      <primaryLabelPosition x="-27.0" y="3.0"/>
       <contentFilters/>
     </element>
     <element uuid="f60c7e6f-92a1-42de-99c0-ffb1dc0fb48b">
@@ -127,7 +138,7 @@
           <seg>feature</seg>
           <seg>cmd</seg>
         </bo>
-        <position x="218.0" y="38.0"/>
+        <position x="218.0" y="30.0"/>
         <contentFilters/>
       </element>
       <element uuid="cdb9d2df-5ecb-4f7d-8ef9-8097b9a8c037" dockArea="left">
@@ -135,7 +146,7 @@
           <seg>feature</seg>
           <seg>spd</seg>
         </bo>
-        <position y="38.0"/>
+        <position y="30.0"/>
         <contentFilters/>
       </element>
       <element uuid="c18e0a8c-6f65-4240-b6cb-0343aca9b30c">
@@ -149,7 +160,7 @@
         <seg>subcomponent</seg>
         <seg>cmd_computation</seg>
       </bo>
-      <position x="360.0" y="370.0"/>
+      <position x="380.0" y="220.0"/>
       <size width="263.0" height="90.0"/>
       <contentFilters>
         <filter>features</filter>
@@ -187,7 +198,7 @@
         <seg>subcomponent</seg>
         <seg>obst_detection</seg>
       </bo>
-      <position x="230.0" y="51.0"/>
+      <position x="240.0" y="45.0"/>
       <size width="241.0" height="90.0"/>
       <contentFilters>
         <filter>features</filter>
@@ -203,7 +214,7 @@
           <seg>feature</seg>
           <seg>pos</seg>
         </bo>
-        <position y="38.0"/>
+        <position y="30.0"/>
         <contentFilters/>
       </element>
       <element uuid="67e1eec4-11bb-4c84-a9e1-97754b5d1ab0" dockArea="right">
@@ -211,7 +222,7 @@
           <seg>feature</seg>
           <seg>spd</seg>
         </bo>
-        <position x="210.0" y="38.0"/>
+        <position x="210.0" y="30.0"/>
         <contentFilters/>
       </element>
       <element uuid="59d2b1a6-5c31-4d51-aa79-6e3fdeadac29">
@@ -225,7 +236,7 @@
         <seg>subcomponent</seg>
         <seg>spd_computation</seg>
       </bo>
-      <position x="60.0" y="350.0"/>
+      <position x="70.0" y="220.0"/>
       <size width="251.0" height="90.0"/>
       <contentFilters>
         <filter>features</filter>
@@ -239,8 +250,8 @@
       <seg>classifier</seg>
       <seg>control_application.impl</seg>
     </bo>
-    <position x="100.0" y="110.0"/>
-    <size width="751.0" height="591.0"/>
+    <position x="100.0" y="60.0"/>
+    <size width="731.0" height="411.0"/>
     <contentFilters>
       <filter>features</filter>
       <filter>internalFeatures</filter>
