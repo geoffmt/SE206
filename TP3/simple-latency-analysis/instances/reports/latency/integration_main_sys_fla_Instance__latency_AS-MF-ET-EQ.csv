@@ -1,0 +1,49 @@
+Latency analysis with preference settings: asynchronous system/major partition frame/worst case as max compute execution time/best case as empty queue
+
+Latency results for end-to-end flow 'e2e_f_cmd' of system 'main_sys.fla',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device the_pos_sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device the_pos_sensor,,0.0ms,no latency,,50.0ms,deadline,Using deadline as execution time was not set,
+(bus the_net),,17.0ms,transmission time,,18.0ms,transmission time,Using data transfer time,
+immediate connection the_pos_sensor.pos -> the_app.spd_computation.pos,,17.0ms,no latency,,18.0ms,no latency,Adding latency subtotal from protocols and hardware - shown with (),
+thread the_app.spd_computation,,0.0ms,no latency,,0.0ms,no latency,
+thread the_app.spd_computation,,11.0ms,processing time,,15.0ms,processing time,
+immediate connection spd_computation.spd -> cmd_computation.spd,,0.0ms,no latency,,0.0ms,no latency,
+thread the_app.cmd_computation,,0.0ms,no latency,,0.0ms,no latency,
+thread the_app.cmd_computation,,75.0ms,processing time,,135.0ms,processing time,
+(bus the_net),,17.0ms,transmission time,,18.0ms,transmission time,Using data transfer time,
+immediate connection the_app.cmd_computation.cmd -> the_engine.cmd,,17.0ms,no latency,,18.0ms,no latency,Adding latency subtotal from protocols and hardware - shown with (),
+device the_engine,,0.0ms,no latency,,0.0ms,no latency,
+device the_engine,,0.0ms,no latency,,200.0ms,deadline,Using deadline as execution time was not set,Max: immediate latency sequence exceeds deadline 200.0ms,
+Latency Total,0.0ms,120.0ms,,0.0ms,436.0ms,,
+Specified End To End Latency,,120.0ms,,,450.0ms,,
+End to end Latency Summary,
+WARNING,Minimum specified flow latency total 0.000ms less than expected minimum end to end latency 120.0ms (better response time),
+INFO,Minimum actual latency total 120.0ms is greater or equal to expected minimum end to end latency 120.0ms,
+INFO,Maximum actual latency total 436.0ms is less or equal to expected maximum end to end latency 450.0ms,
+
+
+
+Latency results for end-to-end flow 'e2e_f_obst' of system 'main_sys.fla',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device the_dist_sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device the_dist_sensor,,0.0ms,no latency,,100.0ms,deadline,Using deadline as execution time was not set,
+(bus the_net),,5.0ms,transmission time,,6.0ms,transmission time,Using data transfer time,
+immediate connection the_dist_sensor.dist -> the_app.obst_detection.dist,,5.0ms,no latency,,6.0ms,no latency,Adding latency subtotal from protocols and hardware - shown with (),
+thread the_app.obst_detection,,0.0ms,no latency,,0.0ms,no latency,
+thread the_app.obst_detection,,12.0ms,processing time,,25.0ms,processing time,
+(bus the_net),,3.0ms,transmission time,,4.0ms,transmission time,Using data transfer time,
+immediate connection the_app.obst_detection.obst -> the_engine.obst,,3.0ms,no latency,,4.0ms,no latency,Adding latency subtotal from protocols and hardware - shown with (),
+device the_engine,,0.0ms,no latency,,0.0ms,no latency,
+device the_engine,,0.0ms,no latency,,200.0ms,deadline,Using deadline as execution time was not set,Max: immediate latency sequence exceeds deadline 200.0ms,
+Latency Total,0.0ms,20.0ms,,0.0ms,335.0ms,,
+Specified End To End Latency,,20.0ms,,,350.0ms,,
+End to end Latency Summary,
+WARNING,Minimum specified flow latency total 0.000ms less than expected minimum end to end latency 20.0ms (better response time),
+INFO,Minimum actual latency total 20.0ms is greater or equal to expected minimum end to end latency 20.0ms,
+INFO,Maximum actual latency total 335.0ms is less or equal to expected maximum end to end latency 350.0ms,
+
+
+

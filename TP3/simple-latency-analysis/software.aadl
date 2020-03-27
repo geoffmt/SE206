@@ -12,13 +12,12 @@ public
 		features
 			dist: in data port data_pkg::distance;
 			obst: out data port data_pkg::obstacle_detected;
-		-- flows (before properties)
 		flows
 			fl_obst: flow path dist -> obst;
-		-- properties
 		properties
 			Period => 100 ms;
 			Deadline => 100 ms;
+			Compute_Execution_Time => 12 ms .. 25 ms;
 	end obstacle_detection;
 	
 	thread speed_computation extends periodic_thread
@@ -30,6 +29,7 @@ public
 		properties
 			Period => 50 ms;
 			Deadline => 50 ms;
+			Compute_Execution_Time => 11 ms .. 15 ms;
 	end speed_computation;
 	
 	thread command_computation extends periodic_thread
@@ -41,6 +41,7 @@ public
 		properties
 			Period => 200 ms;
 			Deadline => 200 ms;
+			Compute_Execution_Time => 75 ms .. 135 ms;
 	end command_computation;
 	
 	process control_application
@@ -68,7 +69,12 @@ public
 		flows
 			fl_cmd: flow path pos -> cnx2 -> spd_computation.fl_spd -> cnx3 -> cmd_computation.fl_cmd -> cnx5 -> cmd;
 			fl_obst: flow path dist -> cnx1 -> obst_detection.fl_obst -> cnx4 -> obst;
-		-- TO BE COMPLETED ??? (properties)
+		properties
+    		Timing => immediate applies to cnx1;
+		    Timing => immediate applies to cnx2;
+		    Timing => immediate applies to cnx3;
+		    Timing => immediate applies to cnx4;
+		    Timing => immediate applies to cnx5;
 	end control_application.impl;
 	
 end software_pkg;
