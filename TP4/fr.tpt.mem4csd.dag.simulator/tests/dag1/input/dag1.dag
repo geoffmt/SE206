@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dag:DagSpecification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dag="https://mem4csd.telecom-paristech.fr/languages/dag/" name="test">
+  <ownedTasks name="T1" period="50">
+    <ownedPorts name="o" direction="out"/>
+  </ownedTasks>
+  <ownedTasks name="T2" period="100">
+    <ownedPorts name="i"/>
+    <ownedPorts name="o" direction="out"/>
+  </ownedTasks>
+  <ownedTasks name="T3" period="100">
+    <ownedPorts name="i"/>
+    <ownedPorts name="o" direction="out" dataType="float"/>
+  </ownedTasks>
+  <ownedTasks name="T4" period="125">
+    <ownedPorts name="i" dataType="float"/>
+  </ownedTasks>
+  <ownedTasks name="T5" period="200">
+    <ownedPorts name="i"/>
+  </ownedTasks>
+  <ownedTasks name="T6" period="50">
+    <ownedPorts name="i"/>
+    <ownedPorts name="o" direction="out"/>
+  </ownedTasks>
+  <ownedTasks name="T7" period="75">
+    <ownedPorts name="i"/>
+  </ownedTasks>
+  <ownedChannels sourcePort="//@ownedTasks.0/@ownedPorts.0" destPort="//@ownedTasks.1/@ownedPorts.0"/>
+  <ownedChannels sourcePort="//@ownedTasks.0/@ownedPorts.0" destPort="//@ownedTasks.5/@ownedPorts.0"/>
+  <ownedChannels sourcePort="//@ownedTasks.1/@ownedPorts.1" destPort="//@ownedTasks.4/@ownedPorts.0"/>
+  <ownedChannels sourcePort="//@ownedTasks.1/@ownedPorts.1" destPort="//@ownedTasks.2/@ownedPorts.0"/>
+  <ownedChannels sourcePort="//@ownedTasks.5/@ownedPorts.1" destPort="//@ownedTasks.6/@ownedPorts.0"/>
+  <ownedChannels sourcePort="//@ownedTasks.2/@ownedPorts.1" destPort="//@ownedTasks.3/@ownedPorts.0"/>
+</dag:DagSpecification>

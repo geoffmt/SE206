@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated dag -->
+      <package
+            uri="https://mem4csd.telecom-paristech.fr/languages/dag/"
+            class="fr.tpt.mem4csd.dag.model.dag.DagPackage"
+            genModel="model/dag.genmodel"/>
+   </extension>
+
+</plugin>

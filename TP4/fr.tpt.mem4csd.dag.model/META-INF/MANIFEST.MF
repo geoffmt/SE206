@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: fr.tpt.mem4csd.dag.model;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.tpt.mem4csd.dag.model.dag,
+ fr.tpt.mem4csd.dag.model.dag.impl,
+ fr.tpt.mem4csd.dag.model.dag.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ fr.tpt.mem4csd.dag.sort;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
