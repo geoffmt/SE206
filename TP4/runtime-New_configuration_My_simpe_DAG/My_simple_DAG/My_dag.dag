@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dag:DagSpecification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dag="https://mem4csd.telecom-paristech.fr/languages/dag/">
+  <ownedTasks name="T1" period="50">
+    <ownedPorts name="out" direction="out"/>
+  </ownedTasks>
+  <ownedTasks name="T2" period="100">
+    <ownedPorts name="in"/>
+  </ownedTasks>
+  <ownedTasks name="T3" period="50">
+    <ownedPorts name="in"/>
+  </ownedTasks>
+  <ownedChannels name="T1.out->T2.in" sourcePort="T1.out" destPort="T2.in"/>
+  <ownedChannels name="T1.out->T3.in" sourcePort="T1.out" destPort="T3.in"/>
+</dag:DagSpecification>

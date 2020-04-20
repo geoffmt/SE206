@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+/home/geoffhome/runtime-New_configuration/.metadata/.plugins/org.eclipse.jdt.core
